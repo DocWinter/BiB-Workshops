@@ -1,2 +1,3 @@
-# BIB-Workshop
-All the workshops made at The BiB
+# BIB Workshops
+
+Tout les documents utilisés lors des Workshops au BiB.
