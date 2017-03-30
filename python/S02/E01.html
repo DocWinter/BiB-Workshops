@@ -1,0 +1,811 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/blood.css">
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<style>
+		#left {
+			left: -8.33%;
+			text-align: left;
+			float: left;
+			width: 50%;
+			z-index: -10;
+		}
+
+		#right {
+			left: 31.25%;
+			top: 75px;
+			float: right;
+			text-align: right;
+			z-index: -10;
+			width: 50%;
+		}
+	</style>
+
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+<!-- ####################################################################### -->
+<!-- BIG TITLE -->
+<!-- ####################################################################### -->
+			<section>
+				<section><h1>Python</h1></section>
+				<section>
+					<h2>S01 – E01</h2>
+					<b><i>A l'aventure compagnons!</i></b>
+					<br>
+					<br>
+					BIB 4.04.17
+					<br>
+					<small><b>Winter</b> - Licence MIT</small>
+				</section>
+			</section>
+<!-- ####################################################################### -->
+<!-- PRESENTATION -->
+<!-- ####################################################################### -->
+			<section>
+				<section><h2>Présentation</h2></section>
+				<section><h3>Histoire</h3></section>
+				<section>
+					<b>Guido Van Rossum</b>
+					<br>
+					<img data-src="http://localhost:8000/images/guido.jpg">
+				</section>
+				<section>
+					<img style="background:white;" data-src="http://localhost:8000/images/python_timeline.png">
+				</section>
+				<section>
+					<h3>Utilisation</h3></section>
+				<section>
+					<h4>Script</h4>
+					<img style="width:auto;" data-src="http://localhost:8000/images/terminal.jpg">
+				</section>
+				<section>
+					<h4>Web</h4>
+					<img style="border:none;width:50%;background:#FFF;" data-src="http://localhost:8000/images/flask.png">
+					<img style="border:none;width:50%;background:#222;" data-src="http://localhost:8000/images/django.svg">
+				</section>
+				<section>
+					<h4>Science</h4>
+					<img data-src="http://localhost:8000/images/python_science.png">
+				</section>
+				<section>
+					<h4>Big Data</h4>
+					<img data-src="http://localhost:8000/images/pandas.png" alt="">
+				</section>
+				<section>
+					<h4>Jeux Vidéos</h4>
+					<img style="width:40%" data-src="http://localhost:8000/images/civ.jpg">
+					<img style="width:40%" data-src="http://localhost:8000/images/crea.png">
+				</section>
+				<section>
+					<h4>3D</h4>
+					<img data-src="http://localhost:8000/images/blender.png" alt="">
+				</section>
+
+				<section>
+					<h3>Installation</h3>
+				</section>
+				<section>
+					<h4>Linux</h4>
+					<a href="https://github.com/pyenv/pyenv-installer">https://github.com/pyenv/pyenv-installer</a>
+					<pre><code class="bash" data-trim data-noescape>
+						$ curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+						$ pyenv update
+						$ pyenv install 3.6.0
+						$ pyenv global 3.6.0
+					</code></pre>
+				</section>
+				<section>
+					<h4>OSX</h4>
+					<a href="https://brew.sh/">https://brew.sh/</a>
+					<pre><code class="bash" data-trim data-noescape>
+						$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+						$ brew install pyenv
+						</code></pre>
+					<pre><code class="bash" data-trim data-noescape>
+							$ pyenv update
+							$ pyenv install 3.6.0
+							$ pyenv global 3.6.0
+						</code></pre>
+				</section>
+				<section>
+					<h4>Windows</h4>
+					<a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>
+				</section>
+				<section>
+					<h3>Hello, World!</h3></section>
+				<section>
+					<h4>Interpreteur</h4>
+					<pre class="fragment"><code class="bash" data-trim data-noescape>
+						$ python
+					</code></pre>
+					<pre class="fragment"><code class="python" data-trim data-noescape>
+						Python 3.6.0 (default, Dec 24 2016, 00:01:50)
+						[GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1)] on darwin
+						Type "help", "copyright", "credits" or "license" for more information.s
+					</code></pre>
+					<pre class="fragment"><code class="python" data-trim data-noescape>
+						>>> print("Hello, World!")
+						Hello, World
+					</code></pre>
+				</section>
+			</section>
+<!-- ####################################################################### -->
+<!-- VARIABLES -->
+<!-- ####################################################################### -->
+			<section>
+				<section><h2>Variables</h2></section>
+				<!-- ####################################### -->
+				<section><h3>Théorie</h3></section>
+				<section>
+					<table>
+						<tr>
+							<th>C, C++</th>
+							<th>Python</th>
+						</tr>
+						<tr class="fragment">
+							<td>Typage statique</td>
+							<td>Typage dynamique</td>
+						</tr>
+						<tr class="fragment">
+							<td>Variable</td>
+							<td>Référence</td>
+						</tr>
+						<tr class="fragment">
+							<td>Position mémoire</td>
+							<td>Etiquetage d'objet</td>
+						</tr>
+					</table>
+				</section>
+				<!-- ####################################### -->
+				<section><h3>Conventions</h3></section>
+				<section>
+					<ul>
+						<li class="fragment">Les noms doivent être clairs</li>
+						<li class="fragment">Les noms ne doivent pas contenir d'accents et autres caractères spéciaux</li>
+						<li class="fragment">Les noms doivent être en miniscules</li>
+						<li class="fragment">Les mots doivent être séparés par des <code>_</code></li>
+					</ul>
+				</section>
+				<!-- ####################################### -->
+				<section><h3>Types de base</h3></section>
+				<section>
+					<table>
+						<tr>
+							<th>Français</th>
+							<th>Python</th>
+						</tr>
+						<tr>
+							<td>Entiers</td>
+							<td>int</td>
+						</tr>
+						<tr>
+							<td>Flottants</td>
+							<td>float</td>
+						</tr>
+						<tr>
+							<td>Booléens</td>
+							<td>bool</td>
+						</tr>
+						<tr>
+							<td>Texte</td>
+							<td>string</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<div id="left">
+						<h4>Entier</h4>
+							<pre><code class="python" data-trim data-noescape>
+								>>> 10
+								<span class="fragment">10</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> -1334
+								<span class="fragment">-1334</span>
+							</code></pre>
+					</div>
+					<div id="right">
+						<h4><code>int()</code></h4>
+							<pre><code class="python" data-trim data-noescape>
+								>>> int("110")
+								<span class="fragment">110</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> int("110", 2)
+								<span class="fragment">6</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> int("FF", 16)
+								<span class="fragment">255</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> int(3.3)
+								<span class="fragment">3</span>
+							</code></pre>
+					</div>
+				</section>
+				<section>
+					<div id="left">
+						<h4>Flottant</h4>
+							<pre><code class="python" data-trim data-noescape>
+								>>> 123.45
+								<span class="fragment">123.45</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> -.123
+								<span class="fragment">-0.123</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> 10e-3
+								<span class="fragment">0.01</span>
+							</code></pre>
+					</div>
+					<div id="right">
+						<h4><code>float()</code></h4>
+							<pre><code class="python" data-trim data-noescape>
+								>>> float(42)
+								<span class="fragment">42.0</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> float('666.999')
+								<span class="fragment">666.999</span>
+							</code></pre>
+					</div>
+				</section>
+				<section>
+					<div id="left">
+						<h4>Booléen</h4>
+							<pre><code class="python" data-trim data-noescape>
+								>>> True
+								<span class="fragment">True</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> False
+								<span class="fragment">False</span>
+							</code></pre>
+					</div>
+					<div id="right">
+						<h4><code>bool()</code></h4>
+							<pre><code class="python" data-trim data-noescape>
+								>>> bool(True)
+								<span class="fragment">True</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> bool()
+								<span class="fragment">False</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> bool(1)
+								<span class="fragment">True</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> bool(0)
+								<span class="fragment">False</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> bool(-1)
+								<span class="fragment">True</span>
+							</code></pre>
+					</div>
+				</section>
+				<section>
+					<div id="left">
+						<h4>Texte</h4>
+							<pre><code class="python" data-trim data-noescape>
+								>>> 'Je suis ton père!'
+								<span class="fragment">'Je suis ton père!'</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> "I'm your father!"
+								<span class="fragment">"I'm your father!"</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> """Anakin
+								... Leila
+								... Luke"
+								<span class="fragment">'Anakin\nLeila\Luke'</span>
+							</code></pre>
+					</div>
+					<div id="right">
+						<h4><code>str()</code></h4>
+							<pre><code class="python" data-trim data-noescape>
+								>>> str(88)
+								<span class="fragment">'88'</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> str(-34.43)
+								<span class="fragment">'-34.43'</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> str(True)
+								<span class="fragment">'True'</span>
+							</code></pre>
+					</div>
+				</section>
+				<!-- ####################################### -->
+				<section><h3>Opérations<br><small>Arithmétique – Assignation</small></h3></section>
+				<section>
+					<h4>Arithmétique<br><small>Nombre</small></h4>
+					<div id="left">
+							<pre><code class="python" data-trim data-noescape>
+								>>> 10 + 10
+								<span class="fragment">20</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> 10 - 10
+								<span class="fragment">0</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> 10 * 10
+								<span class="fragment">100</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> 10 ** 3
+								<span class="fragment">1000</span>
+							</code></pre>
+					</div>
+					<div id="right">
+							<pre><code class="python" data-trim data-noescape>
+								>>> 10 / 10
+								<span class="fragment">1.0</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> 10 / 3
+								<span class="fragment">3.3333333333333335</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> 10 // 3
+								<span class="fragment">3</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> 10 % 2
+								<span class="fragment">0</span>
+							</code></pre>
+					</div>
+				</section>
+				<!-- TODO -->
+				<section>
+					<h4>Arithmétique<br><small>Texte</small></h4>
+						<pre><code class="python" data-trim data-noescape>
+							>>> 'Hello,' + ' World!'
+							<span class="fragment">'Hello, World!'</span>
+						</code></pre>
+						<pre><code class="python" data-trim data-noescape>
+							>>> 'Moshi'*2
+							<span class="fragment">'MoshiMoshi'</span>
+						</code></pre>
+						<pre><code class="python" data-trim data-noescape>
+							>>> 'Date : ' + 4 + ' avril.'
+							<span class="fragment bash">TypeError: Must be str, not int</span>
+						</code></pre>
+						<pre><code class="python" data-trim data-noescape>
+							>>> 'Date : ' + str(4) + ' avril.'
+							<span class="fragment">'Date : 4 avril'</span>
+						</code></pre>
+				</section>
+				<section>
+					<h4>Assignation</h4>
+					<div id="left">
+							<pre><code class="python" data-trim data-noescape>
+								>>> a, b = 10, 'test '
+								<span class="fragment"># a = 10, b = 'test'</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> a += 10
+								<span class="fragment"># a = 20</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> a -= 10
+								<span class="fragment"># a = 10</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> a *= 10
+								<span class="fragment"># a = 100</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> b *= 3
+								<span class="fragment"># b = 'test test test '</span>
+							</code></pre>
+					</div>
+					<div id="right">
+							<pre><code class="python" data-trim data-noescape>
+							>>> a **= 2
+							<span class="fragment"># a = 10000</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+							>>> a /= 10
+							<span class="fragment"># a = 1000</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+							>>> a //= 3
+							<span class="fragment"># a = 333</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+							>>> a %= 2
+							<span class="fragment"># a = 1</span>
+							</code></pre>
+							<pre><code class="python" data-trim data-noescape>
+								>>> b += "échec!"
+								<span class="fragment"># b = 'test test test échec!'</span>
+							</code></pre>
+					</div>
+				</section>
+			</section>
+<!-- ####################################################################### -->
+<!-- ENTREES ET SORTIES -->
+<!-- ####################################################################### -->
+			<section>
+				<section><h2>Entrées et Sorties</h2></section>
+				<!-- ####################################### -->
+				<section><h3>Fichier Python / Module</h3></section>
+				<section>
+					<pre><code class="bash" data-trim data-noescape>
+						touch script.py
+					</code></pre>
+					<pre><code class="python" data-trim data-noescape>
+						#!/usr/bin/env python3
+
+						print("Hello, World!")
+					</code></pre>
+					<br>
+					<div id="left">
+						<pre><code class="bash" data-trim data-noescape>
+							chmod +x script.py
+							./script.py
+						</code></pre>
+					</div>
+					<div id="right">
+						<pre><code class="bash" data-trim data-noescape>
+							python script.py
+						</code></pre>
+					</div>
+				</section>
+				<!-- ####################################### -->
+				<section><h3>Print</h3></section>
+				<section>
+					<pre><code class="python" data-trim data-noescape>
+						>>> print("Hello, Wolrd!")
+						Hello, World!
+					</code></pre>
+					<pre><code class="python" data-trim data-noescape>
+						>>> print(1)
+						1
+					</code></pre>
+					<br>
+					<pre><code class="python" data-trim data-noescape>
+						>>> heures = 19
+						>>> minutes = 30
+					</code></pre>
+					<pre><code class="python" data-trim data-noescape>
+						>>> print("Il est " + heures + ":" + minutes.)
+						# TypeError: Must be str, not int
+					</code></pre>
+					<pre><code class="python" data-trim data-noescape>
+						>>> print("Il est {}:{}.".format(heures, minutes))
+						Il est 19:30.
+					</code></pre>
+					<pre><code class="python" data-trim data-noescape>
+						>>> print(f"Il est {heures}:{minutes}.")
+						Il est 19:30.
+					</code></pre>
+				</section>
+				<!-- ####################################### -->
+				<section><h3>Input</h3></section>
+				<section>
+					<pre><code class="python" data-trim data-noescape>
+						>>> input()
+					</code></pre>
+					<pre><code class="python" data-trim data-noescape>
+						>>> input("Quelle est la couleur du cheval noir d'Henri IV? ")
+					</code></pre>
+					<pre><code class="python" data-trim data-noescape>
+						>>> input("Quelle est la couleur du cheval noir d'Henri IV?\n")
+					</code></pre>
+					<pre><code class="python" data-trim data-noescape>
+						>>> réponse = input("Quelle heure est il? ")
+					</code></pre>
+				</section>
+				<!-- ####################################### -->
+				<section>
+					<h3>TD</h3>
+					<br>
+					<div id="left">
+						<ol>
+							<li>Posez des questions</li>
+							<li>Récupérez les réponses</li>
+							<li>Affichez les de manière sympathique</li>
+						</ol>
+					</div>
+					<div id="right">
+						<pre><code class="python" data-trim data-noescape>
+							###############################
+							--   NYPD  --
+							Fichier 0312:
+							-------------
+							Nom : John Doe
+							Date de Naissance: 01/01/2042
+							Nationalité: Américaine
+							Job: Hacker
+							------------
+							###############################
+						</code></pre>
+					</div>
+				</section>
+			</section>
+			</section>
+<!-- ####################################################################### -->
+<!-- CONDITIONS -->
+<!-- ####################################################################### -->
+			<section>
+				<section><h2>Conditions</h2></section>
+				<!-- ####################################### -->
+				<section><h3>Opérations<br><small>Comparaison – Logique</small></h3></section>
+				<section>
+					<h4>Comparaison</h4>
+					<div id="left">
+						<pre><code class="python" data-trim data-noescape>
+							>>> a, b = 10, 20
+						</code></pre>
+						<pre><code class="python" data-trim data-noescape>
+							>>> a == b
+							<span class="fragment">False</span>
+						</code></pre>
+						<pre><code class="python" data-trim data-noescape>
+							>>> a != b
+							<span class="fragment">True</span>
+						</code></pre>
+					</div>
+					<div id="right">
+						<pre><code class="python" data-trim data-noescape>
+							>>> a > b
+							<span class="fragment">False</span>
+						</code></pre>
+						<pre><code class="python" data-trim data-noescape>
+							>>> a < b
+							<span class="fragment">True</span>
+						</code></pre>
+						<pre><code class="python" data-trim data-noescape>
+							>>> a >= b
+							<span class="fragment">False</span>
+						</code></pre>
+						<pre><code class="python" data-trim data-noescape>
+							>>> a <= b
+							<span class="fragment">True</span>
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h4>Logique</h4>
+					<br>
+					<div id="left">
+						<pre><code class="python" data-trim data-noescape>
+							>>> not True
+							<span class="fragment">False</span>
+						</code></pre>
+						<pre><code class="python" data-trim data-noescape>
+							>>> True and True
+							<span class="fragment">True</span>
+						</code></pre>
+						<pre><code class="python" data-trim data-noescape>
+							>>> True and False
+							<span class="fragment">False</span>
+						</code></pre>
+						<pre><code class="python" data-trim data-noescape>
+							>>> False and False
+							<span class="fragment">False</span>
+						</code></pre>
+					</div>
+
+					<div id="right">
+						<pre><code class="python" data-trim data-noescape>
+							>>> not False
+							<span class="fragment">True</span>
+						</code></pre>
+						<pre><code class="python" data-trim data-noescape>
+							>>> True or True
+							<span class="fragment">True</span>
+						</code></pre>
+						<pre><code class="python" data-trim data-noescape>
+							>>> True or False
+							<span class="fragment">True</span>
+						</code></pre>
+						<pre><code class="python" data-trim data-noescape>
+							>>> False or False
+							<span class="fragment">False</span>
+						</code></pre>
+					</div>
+				</section>
+				<!-- ####################################### -->
+				<section><h3>if ... elif ... else</h3></section>
+				<section>
+					<h4>if</h4>
+					<div id="left">
+						<b>Pseudo Code</b>
+						<pre><code class="markdown" data-trim data-noescape>
+							SI expression ALORS action
+						</code></pre>
+					</div>
+					<div id="right">
+						<b>Python</b>
+						<pre><code class="python" data-trim data-noescape>
+							>>> if expression:
+							...     action
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h4>Exemple</h4>
+					<div id="left">
+						<pre><code class="python" data-trim data-noescape>
+							>>> a = 1
+							>>> if a == 1:
+							...     print('a est égal à 1')
+						</pre></code>
+						<pre><code class="python" data-trim data-noescape>
+							<span class="fragment">a est égal à 1</span>
+						</pre></code>
+					</div>
+					<div id="right">
+						<pre><code class="python" data-trim data-noescape>
+							>>> b = 0
+							>>> if b == 1:
+							...     print('b est égal à 1')
+						</pre></code>
+						<pre><code class="python" data-trim data-noescape>
+							<span class="fragment"># Rien ne se passe</span>
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h4>if ... else</h4>
+					<div id="left">
+						<b>Pseudo Code</b>
+						<pre><code class="markdown" data-trim data-noescape>
+							SI expr ALORS action1
+							SINON action2
+						</code></pre>
+					</div>
+					<div id="right">
+						<b>Python</b>
+						<pre><code class="python" data-trim data-noescape>
+							>>> if expression:
+							...     action1
+							... else:
+							...     action2
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h4>Exemple</h4>
+					<pre><code class="python" data-trim data-noescape>
+							>>> a = 10
+							>>> if a % 2 == 0:
+							...     print('a est pair')
+							... else:
+							...     print('a est impair')
+						</pre></code>
+						<pre><code class="python" data-trim data-noescape>
+							<span class="fragment">a est pair</span>
+						</pre></code>
+				</section>
+				<section>
+					<h4>if ... elif ... else</h4>
+					<div id="left">
+						<b>Pseudo Code</b>
+						<pre><code class="markdown" data-trim data-noescape>
+							SI       expr1 ALORS action1
+							SINON SI expr2 ALORS action2
+							SINON action3
+						</code></pre>
+					</div>
+					<div id="right">
+						<b>Python</b>
+						<pre><code class="python" data-trim data-noescape>
+							>>> if expression1:
+							...     action1
+							... elif expression2
+							...     action2
+							... else:
+							...     action3
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h4>Exemple</h4>
+					<pre><code class="python" data-trim data-noescape>
+							>>> age = 42
+							>>> if 0 <= age < 18:
+							...     print('Enfant')
+							... elif 18 <= age < 65:
+							...     printf('Adulte')
+							... else
+							...     printf('Retraité')
+						</pre></code>
+						<pre><code class="python" data-trim data-noescape>
+							<span class="fragment">Adulte</span>
+						</pre></code>
+				</section>
+				<section>
+					<h3>TD</h3>
+					<br>
+					<div id="left">
+						<ol>
+							<li>Reprenez le TD précédent</li>
+							<li>Créez des questions dépendantes aux précédentes réponses</li>
+							<li>Affichez une synthèse sympathique</li>
+						</ol>
+					</div>
+					<div id="right">
+							<ul>
+								<li><small>Si l'utilisateur à <b>un job</b>,<br>combien de <b>temps</b> a-t-il travaillé?</small></li><br>
+								<li><small>Si l'utilisateur est dans <b>un couple</b>,<br>est-il <b>marié</b>?</small></li><br>
+								<li><small>Si l'utilisateur à <b>un certain âge</b>,<br>est-il <b>toujours à l'école</b>?</small></li>
+							</ul>
+					</div>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		Reveal.initialize({
+			history: true,
+			dependencies: [{
+					src: 'plugin/markdown/marked.js',
+					condition: function() {
+						return !!document.querySelector('[data-markdown]');
+					}
+				},
+				{
+					src: 'plugin/markdown/markdown.js',
+					condition: function() {
+						return !!document.querySelector('[data-markdown]');
+					}
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'socket.io/socket.io.js',
+					async: true
+				},
+				{
+					src: 'plugin/notes-server/client.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function() {
+						hljs.initHighlightingOnLoad();
+					}
+				}
+			]
+		});
+		Reveal.configure({ slideNumber: 'c' });
+	</script>
+</body>
+</html>
