@@ -66,38 +66,41 @@
 				<section>
 					<b>Guido Van Rossum</b>
 					<br>
-					<img data-src="http://localhost:8000/images/guido.jpg">
+					<img data-src="http://cacm.acm.org/system/assets/0002/3442/042516_VN_Guido-van-Rossum.large.jpg" alt="Guido Van Rossum">
 				</section>
 				<section>
-					<img style="background:white;" data-src="http://localhost:8000/images/python_timeline.png">
+					<b>Versions</b>
+					<br>
+					<img style="background:white;" data-src="https://upload.wikimedia.org/wikipedia/commons/8/8c/PythonTimeline_1.png" alt="python timeline">
 				</section>
 				<section>
 					<h3>Utilisation</h3></section>
 				<section>
 					<h4>Script</h4>
-					<img style="width:auto;" data-src="http://localhost:8000/images/terminal.jpg">
+					<img style="border:none;width:auto;" data-src="https://nicolargo.github.io/glances/public/images/screenshot-wide.png" alt="glance">
+				</section>
+				<section>
+					<h4>Hardware</h4>
+					<img style="border:none;background:#222;width:20%" src="https://www.raspberrypi.org/wp-content/uploads/2015/08/raspberry-pi-logo.png" alt="logo raspberry pi">
+					<img style="border:none;width:40%;" src="http://osworld.pl/wp-content/uploads/2014/07/Micro-Python-v1.0-spod.jpg" alt="micro python board v1.0">
 				</section>
 				<section>
 					<h4>Web</h4>
-					<img style="border:none;width:50%;background:#FFF;" data-src="http://localhost:8000/images/flask.png">
-					<img style="border:none;width:50%;background:#222;" data-src="http://localhost:8000/images/django.svg">
+					<img style="border:none;width:50%;background:#FFF;" data-src="http://flask.pocoo.org/static/logo/flask.png" alt="logo flask">
+					<img style="border:none;width:50%;background:#222;" data-src="https://www.djangoproject.com/s/img/logos/django-logo-negative.svg" alt="logo django">
 				</section>
 				<section>
-					<h4>Science</h4>
-					<img data-src="http://localhost:8000/images/python_science.png">
-				</section>
-				<section>
-					<h4>Big Data</h4>
-					<img data-src="http://localhost:8000/images/pandas.png" alt="">
+					<h4>Science & Big Data</h4>
+					<img style="background:white;" data-src="https://www.dataiku.com/static/img/learn/guide/getting-started/getting-started-with-python/logo-stack-python.png" alt="numpy scipy sckikit matplotlib pandas ipython">
 				</section>
 				<section>
 					<h4>Jeux Vidéos</h4>
-					<img style="width:40%" data-src="http://localhost:8000/images/civ.jpg">
-					<img style="width:40%" data-src="http://localhost:8000/images/crea.png">
+					<img style="width:40%" data-src="http://www.mobygames.com/images/covers/l/151336-sid-meier-s-civilization-iv-windows-front-cover.png" alt="cover Civilization IV">
+					<img style="width:40%" data-src="http://siegegames.com/wp-content/uploads/2012/06/crea_logo.png" alt="logo crea">
 				</section>
 				<section>
 					<h4>3D</h4>
-					<img data-src="http://localhost:8000/images/blender.png" alt="">
+					<img style="border:none;" data-src="http://blenderlounge.fr/wp-content/uploads/2013/10/mockup02_03_nodesc.png" alt="blender UI">
 				</section>
 
 				<section>
@@ -382,7 +385,6 @@
 							</code></pre>
 					</div>
 				</section>
-				<!-- TODO -->
 				<section>
 					<h4>Arithmétique<br><small>Texte</small></h4>
 						<pre><code class="python" data-trim data-noescape>
@@ -459,7 +461,7 @@
 				<section><h3>Fichier Python / Module</h3></section>
 				<section>
 					<pre><code class="bash" data-trim data-noescape>
-						touch script.py
+						script.py
 					</code></pre>
 					<pre><code class="python" data-trim data-noescape>
 						#!/usr/bin/env python3
@@ -467,13 +469,13 @@
 						print("Hello, World!")
 					</code></pre>
 					<br>
-					<div id="left">
+					<div id="left" class="fragment">
 						<pre><code class="bash" data-trim data-noescape>
 							chmod +x script.py
 							./script.py
 						</code></pre>
 					</div>
-					<div id="right">
+					<div id="right" class="fragment">
 						<pre><code class="bash" data-trim data-noescape>
 							python script.py
 						</code></pre>
@@ -805,7 +807,15 @@
 				}
 			]
 		});
-		Reveal.configure({ slideNumber: 'c' });
+		Reveal.configure({
+			slideNumber: 'c',
+			pdfMaxPagesPerSlide: 1,
+		});
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
 	</script>
 </body>
 </html>
