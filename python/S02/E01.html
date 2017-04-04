@@ -130,11 +130,13 @@
 						$ curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
 					</code></pre>
 					<pre class="fragment"><code class="bash" data-trim data-noescape>
+						# UBUNTU & FEDORA
 						$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
 						$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
 						$ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 					</code></pre>
 					<pre class="fragment"><code class="bash" data-trim data-noescape>
+						# AUTRES
 						$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
 						$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
 						$ echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
@@ -213,12 +215,55 @@
 				<!-- ####################################### -->
 				<section><h3>Conventions</h3></section>
 				<section>
-					<ul>
-						<li class="fragment">Les noms doivent être clairs</li>
-						<li class="fragment">Les noms ne doivent pas contenir d'accents et autres caractères spéciaux</li>
-						<li class="fragment">Les noms doivent être en miniscules</li>
-						<li class="fragment">Les mots doivent être séparés par des <code>_</code></li>
-					</ul>
+						<div class="fragment">
+							Les noms doivent être clairs :
+							<pre><code class="python" data-trim data-noescape>
+								>>> f = 'log.txt' # Non
+								>>> fichier = 'log.txt' # Oui
+							</code></pre>
+						</div>
+						<br>
+						<div class="fragment">
+							Les noms ne doivent pas contenir de caractères spéciaux :
+							<pre><code class="python" data-trim data-noescape>
+								>>> døññée̽s!clie̽nt = 'data.db' # Non
+								>>> donnees_client = 'data.db' # Oui
+							</code></pre>
+						</div>
+				</section>
+				<section>
+					<div class="fragment">
+						Les noms doivent être en miniscules :
+						<pre><code class="python" data-trim data-noescape>
+							>>> données_client = 'data.db' # Non
+							>>> donnees_client = 'data.txt' # Oui
+						</code></pre>
+					</div>
+					<br>
+					<div class="fragment">
+						Les mots doivent être séparés par des <code>_</code> :
+						<pre><code class="python" data-trim data-noescape>
+							>>> nomDuChat = 'Le Chat' # Non
+							>>> nom_du_chat = 'Le Chat' # Oui
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<div class="fragment">
+						Les noms ne doivent pas être utilisés par Python :
+						<pre><code class="python" data-trim data-noescape>
+							>>> class = 'Le Chat' # Non
+							>>> if = 'Le Chien' # Non
+						</code></pre>
+					</div>
+					<br>
+					<div class="fragment">
+						Evitez le français :
+						<pre><code class="python" data-trim data-noescape>
+							>>> nom_du_chat = 'Le Chat' # Non
+							>>> cat_name = 'Le Chat' # Oui
+						</code></pre>
+					</div>
 				</section>
 				<!-- ####################################### -->
 				<section><h3>Types de base</h3></section>
@@ -455,6 +500,7 @@
 								>>> a *= 10
 								<span class="fragment"># a = 100</span>
 							</code></pre>
+							<br>
 							<pre><code class="python" data-trim data-noescape>
 								>>> b *= 3
 								<span class="fragment"># b = 'test test test '</span>
@@ -477,6 +523,7 @@
 							>>> a %= 2
 							<span class="fragment"># a = 1</span>
 							</code></pre>
+							<br>
 							<pre><code class="python" data-trim data-noescape>
 								>>> b += "échec!"
 								<span class="fragment"># b = 'test test test échec!'</span>
@@ -516,28 +563,28 @@
 				<!-- ####################################### -->
 				<section><h3>Print</h3></section>
 				<section>
-					<pre><code class="python" data-trim data-noescape>
+					<pre class="fragment"><code class="python" data-trim data-noescape>
 						>>> print("Hello, Wolrd!")
 						Hello, World!
 					</code></pre>
-					<pre><code class="python" data-trim data-noescape>
+					<pre class="fragment"><code class="python" data-trim data-noescape>
 						>>> print(1)
 						1
 					</code></pre>
 					<br>
-					<pre><code class="python" data-trim data-noescape>
+					<pre class="fragment"><code class="python" data-trim data-noescape>
 						>>> heures = 19
 						>>> minutes = 30
 					</code></pre>
-					<pre><code class="python" data-trim data-noescape>
+					<pre class="fragment"><code class="python" data-trim data-noescape>
 						>>> print("Il est " + heures + ":" + minutes.)
 						# TypeError: Must be str, not int
 					</code></pre>
-					<pre><code class="python" data-trim data-noescape>
+					<pre class="fragment"><code class="python" data-trim data-noescape>
 						>>> print("Il est {}:{}.".format(heures, minutes))
 						Il est 19:30.
 					</code></pre>
-					<pre><code class="python" data-trim data-noescape>
+					<pre class="fragment"><code class="python" data-trim data-noescape>
 						>>> print(f"Il est {heures}:{minutes}.")
 						Il est 19:30.
 					</code></pre>
@@ -545,16 +592,16 @@
 				<!-- ####################################### -->
 				<section><h3>Input</h3></section>
 				<section>
-					<pre><code class="python" data-trim data-noescape>
+					<pre class="fragment"><code class="python" data-trim data-noescape>
 						>>> input()
 					</code></pre>
-					<pre><code class="python" data-trim data-noescape>
+					<pre class="fragment"><code class="python" data-trim data-noescape>
 						>>> input("Quelle est la couleur du cheval noir d'Henri IV? ")
 					</code></pre>
-					<pre><code class="python" data-trim data-noescape>
+					<pre class="fragment"><code class="python" data-trim data-noescape>
 						>>> input("Quelle est la couleur du cheval noir d'Henri IV?\n")
 					</code></pre>
-					<pre><code class="python" data-trim data-noescape>
+					<pre class="fragment"><code class="python" data-trim data-noescape>
 						>>> réponse = input("Quelle heure est il? ")
 					</code></pre>
 				</section>
@@ -599,6 +646,7 @@
 						<pre><code class="python" data-trim data-noescape>
 							>>> a, b = 10, 20
 						</code></pre>
+						<br>
 						<pre><code class="python" data-trim data-noescape>
 							>>> a == b
 							<span class="fragment">False</span>
@@ -635,6 +683,7 @@
 							>>> not True
 							<span class="fragment">False</span>
 						</code></pre>
+						<br>
 						<pre><code class="python" data-trim data-noescape>
 							>>> True and True
 							<span class="fragment">True</span>
@@ -654,6 +703,7 @@
 							>>> not False
 							<span class="fragment">True</span>
 						</code></pre>
+						<br>
 						<pre><code class="python" data-trim data-noescape>
 							>>> True or True
 							<span class="fragment">True</span>
