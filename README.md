@@ -14,7 +14,7 @@ git clone https://github.com/DocWinter/BiB-Workshops
 cd BiB-Workshops
 ```
 
-- Zip :[ici](https://github.com/DocWinter/BiB-Workshops/archive/master.zip)
+- Zip : [ici](https://github.com/DocWinter/BiB-Workshops/archive/master.zip)
 
 ## Python
 
@@ -23,6 +23,7 @@ cd BiB-Workshops
 Version intéractive : [S02](https://github.com/DocWinter/BiB-Workshops/tree/master/python/S02/web)
 
 1. E01 - [Les bases](https://github.com/DocWinter/BiB-Workshops/blob/master/python/S02/E01.pdf)
+2. E02 - [Structure de données et Fonctions](https://github.com/DocWinter/BiB-Workshops/blob/master/python/S02/E02.pdf))
 
 ## Licence
 

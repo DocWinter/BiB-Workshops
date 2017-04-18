@@ -1,0 +1,582 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/blood.css">
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<style>
+		#left {
+			left: -8.33%;
+			text-align: left;
+			float: left;
+			width: 50%;
+			z-index: -10;
+		}
+
+		#right {
+			left: 31.25%;
+			top: 75px;
+			float: right;
+			text-align: right;
+			z-index: -10;
+			width: 50%;
+		}
+	</style>
+
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+<div class="reveal">
+<div class="slides">
+<!-- ####################################################################### -->
+<!-- BIG TITLE -->
+<!-- ####################################################################### -->
+<section>
+	<section>
+		<h1>Python</h1></section>
+	<section>
+		<h2>S02 – E02</h2>
+		<b><i>A l'abordage, moussaillons!</i></b>
+		<br>
+		<br> BIB 18.04.17
+		<br>
+		<small><b>Winter</b> - Licence MIT</small>
+	</section>
+</section>
+<!-- ####################################################################### -->
+<!-- LOOPS -->
+<!-- ####################################################################### -->
+<section>
+	<section><h2>Boucles</h2></section>
+	<section><h3>While</h3></section>
+	<section>
+		<div id="left">
+			<b>Pseudo Code</b>
+			<pre><code class="markdown" data-trim data-noescape>
+				TANT QUE expr ALORS action
+			</code></pre>
+		</div>
+		<div id="right">
+			<b>Python</b>
+			<pre><code class="python" data-trim data-noescape>
+				>>> while expr:
+				...     action
+			</code></pre>
+		</div>
+	</section>
+	<section>
+		<div id="left">
+			<b>Pseudo Code</b>
+			<pre><code class="markdown" data-trim data-noescape>
+				TANT QUE expr ALORS action1
+				SINON action2
+			</code></pre>
+		</div>
+		<div id="right">
+			<b>Python</b>
+			<pre><code class="python" data-trim data-noescape>
+				>>> while expr:
+				...     action1
+				... else:
+				...     action2
+			</code></pre>
+		</div>
+	</section>
+	<section><h3>For</h3></section>
+	<section>
+		<div id="left">
+			<b>Pseudo Code</b>
+			<pre><code class="markdown" data-trim data-noescape>
+				POUR TOUT x DANS y ALORS action
+			</code></pre>
+		</div>
+		<div id="right">
+			<b>Python</b>
+			<pre><code class="python" data-trim data-noescape>
+				>>> for x in y:
+				...     action1
+			</code></pre>
+		</div>
+	</section>
+	<section>
+		<div id="left">
+			<b>Pseudo Code</b>
+			<pre><code class="markdown" data-trim data-noescape>
+				POUR TOUT x DANS y ALORS action1
+				SINON action2
+			</code></pre>
+		</div>
+		<div id="right">
+			<b>Python</b>
+			<pre><code class="python" data-trim data-noescape>
+				>>> for x in y:
+				...     action1
+				... else:
+				...     action2
+			</code></pre>
+		</div>
+	</section>
+	<section><h3>Break</h3></section>
+	<section>
+		<pre><code class="python" data-trim data-noescape>
+			>>> a = 0
+			>>> while True:
+			...     if a == 10:
+			...         break
+			...     print(a)
+			...     a += 1
+		</code></pre>
+	</section>
+</section>
+<!-- ####################################################################### -->
+<!-- ARRAY -->
+<!-- ####################################################################### -->
+<section>
+	<section><h2>Tableaux</h2></section>
+	<!--
+		Pour chaque structure :
+			-> Propriétés
+			-> Cas d'utilisation
+			-> Exemple (1D, 2D, mélange)
+	-->
+	<section><h3>Liste</h3></section>
+	<section>
+		<h4>Index</h4>
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste = [43, 233.45, 'Hello', True]
+		</code></pre>
+
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste[0]
+			43
+		</code></pre>
+
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste[-1]
+			True
+		</code></pre>
+
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste[-1] = False
+			[43, 344.45, 'Hello', False]
+		</code></pre>
+	</section>
+
+	<section>
+		<h4>Opérations</h4>
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste = [0, 1, 2]
+		</pre></code>
+		<pre><code class="python" data-trim data-noescape>
+			>>> len(liste)
+			3
+		</pre></code>
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste + [4, 5]
+			[0, 1, 2, 3, 4, 5]
+		</pre></code>
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste * 3
+			[0, 1, 2, 0, 1, 2, 0, 1, 2]
+		</pre></code>
+		<pre><code class="python" data-trim data-noescape>
+			>>> del liste[0]
+			[1, 2]
+		</pre></code>
+	</section>
+
+	<section>
+		<h4>Slicing</h4>
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste = [1, 2, 3, 4, 5, 6]
+		</code></pre>
+		<div id="left">
+			<pre><code class="python" data-trim data-noescape>
+				>>> liste[A:B:P]
+			</code></pre>
+		</div>
+		<div id="right">
+			<p>
+				A: Index de départ (inclus)<br>
+				B: Index d'arrivé (exclus)<br>
+				P: Pas
+			</p>
+		</div>
+
+	</section>
+	<section>
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste[3:]
+			[4, 5, 6]
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste[:-1]
+			[1, 2, 3, 4, 5]
+			>>> liste[:3]
+			[1, 2, 3]
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste[1:3]
+			[2,3]
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste[0:len(liste):2]
+			[1, 3, 5]
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste[::-1]
+			[6, 5, 4, 3, 2, 1]
+		</code></pre>
+	</section>
+
+	<section>
+		<h4>Méthodes</h4>
+		<pre><code class="python" data-trim data-noescape>
+			>>> animaux = []
+		</code></pre>
+
+		<pre><code class="python" data-trim data-noescape>
+			>>> animaux.append('Chat')
+			['Chat']
+		</code></pre>
+
+		<pre><code class="python" data-trim data-noescape>
+			>>> animaux.extend(['Poisson', 'Mouette'])
+			['Chat', 'Poisson', 'Mouette']
+		</code></pre>
+
+		<pre><code class="python" data-trim data-noescape>
+			>>> animaux.insert(0, 'Python')
+			['Python', 'Chat', 'Poisson', 'Mouette']
+		</code></pre>
+
+		<pre><code class="python" data-trim data-noescape>
+			>>> animaux.remove('Chat')
+			['Python', 'Poisson', 'Mouette']
+		</code></pre>
+
+		<pre><code class="python" data-trim data-noescape>
+			>>> animaux.index('Python')
+			0
+		</code></pre>
+	</section>
+
+	<section>
+		<h4>Liste en compréhension</h4>
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste = [x**2 for x in range(0, 5)]
+			[0, 1, 4, 9, 16]
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			>>> liste = [x for x in range(0, 5) if x % 2 == 0]
+			[0, 2, 4]
+		</code></pre>
+	</section>
+
+	<section><h3>Chaînes de caractères</h3></section>
+	<section>
+		<pre><code class="python" data-trim data-noescape>
+			>>> hello = "Hello, Wolrd!"
+			>>> hello[0] = 'T'
+			TypeError: 'str' object does not support item assignment
+		</code></pre>
+	</section>
+
+	<section><h3>Tuple</h3></section>
+	<section>
+		<pre><code class="python" data-trim data-noescape>
+			>>> t = (10, 20, 30)
+			>>> t[1] = 40
+			TypeError: 'tuple' object does not support item assignment
+		</code></pre>
+	</section>
+	<section>
+		<h4>Unpacking</h4>
+		<pre><code class="python" data-trim data-noescape>
+			>>> (a, b, c) = (1, 2, 3)
+			>>> (a, b, c) = 1, 2, 3
+			>>> a, b, c = (1, 2, 3)
+			>>> a, b, c = 1, 2, 3
+		</code></pre>
+	</section>
+
+	<section><h3>Collection</h3></section>
+	<section>
+		<pre><code class="python" data-trim data-noescape>
+			>>> s = {0, 1, 2, 2, 3, 4, 5, 6, 6, 7}
+			{0, 1, 2, 3, 4, 5, 6, 7}
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			>>> s2 = {4, 3, 2, 1, 0}
+			{0, 1, 2, 3, 4}
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			>>> s[0]
+			TypeError: 'set' object does not support indexing
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			>>> s[0] = 1
+			TypeError: 'set' object does not support item assignment
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			>>> s.add(8)
+			{0, 1, 2, 3, 4, 5, 6, 7, 8}
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			>>> s.remove(0)
+			{1, 2, 3, 4, 5, 6, 7, 8}
+		</code></pre>
+	</section>
+
+	<section><h3>Dictionnaires</h3></section>
+	<section>
+		<pre><code class="python" data-trim data-noescape>
+			>>> d = {'name': 'John', 'age': 42, 'job': 'Hacker'}
+			{'age': 42, 'job': 'Hacker', 'name': 'John'}
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			>>> d['name']
+			'John'
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			>>> d['age'] = 66
+			{'age': 66, 'job': 'Hacker', 'name': 'John'}
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			>>> d['city'] = 'New York City'
+			{'age': 42, 'city': 'New York City', 'job': 'Hacker', 'name': 'John'}
+		</code></pre>
+	</section>
+	<section>
+		<h4>Iterations</h4>
+		<pre><code class="python" data-trim data-noescape>
+			>>> for key, value in d.items():
+			...     print(f'{key}: {value}')
+		</code></pre>
+	</section>
+
+	<section><h3>Récapitulatif</h3></section>
+	<section>
+		<table>
+			<tr>
+				<th></th>
+				<th>List</th>
+				<th>String</th>
+				<th>Tuple</th>
+				<th>Set</th>
+				<th>Dict</th>
+			</tr>
+			<tr>
+				<td>Séquence</td>
+				<td><b>Oui</b></td>
+				<td><b>Oui</b></td>
+				<td><b>Oui</b></td>
+				<td>Non</td>
+				<td>Non</td>
+			</tr>
+			<tr>
+				<td>Modifiable</td>
+				<td><b>Oui</b></td>
+				<td>Non</td>
+				<td>Non</td>
+				<td>Non</td>
+				<td><b>Oui</b></td>
+			</tr>
+			<tr>
+				<td>Ajout<br>Supression</td>
+				<td><b>Oui</b></td>
+				<td>Non</td>
+				<td>Non</td>
+				<td><b>Oui</b></td>
+				<td><b>Oui</b></td>
+			</tr>
+		</table>
+	</section>
+
+</section>
+<!-- ####################################################################### -->
+<!-- FUNCTION -->
+<!-- ####################################################################### -->
+<section>
+	<section><h2>Fonctions</h2></section>
+	<section><h3>Présentation</h3></section>
+	<section>
+		<ul>
+			<li>Programme à l'intérieur d'un programme</li>
+			<li>Permet de découper son code proprement</li>
+			<li>Suit les conditions de nommages des variables</li>
+		</ul>
+	</section>
+	<section><h3>Squelette</h3></section>
+	<section>
+		<div id="left">
+			<pre><code class="python" data-trim data-noescape>
+				>>> def somme(a, b):
+				...     """Retourne la somme de a et b"""
+				...     return a + b
+			</pre></code>
+			<pre><code class="python" data-trim data-noescape>
+			>>> somme(1, 2)
+			3
+			</pre></code>
+			<pre><code class="python" data-trim data-noescape>
+				>>> c, d = 2, 2
+				>>> somme(c, d)
+				4
+			</pre></code>
+		</div>
+		<div id="right">
+			<ul>
+				<li>En tête</li>
+				<li>Docstring</li>
+				<li>Corps</li>
+			</ul>
+		</div>
+	</section>
+	<section>
+		<h4>Paramètres</h4>
+		<pre><code class="python" data-trim data-noescape>
+			def somme(a, b):
+		</pre></code>
+		<pre><code class="python" data-trim data-noescape>
+			def somme(a, b=0):
+		</pre></code>
+		<pre><code class="python" data-trim data-noescape>
+			>>> somme(10)
+			10
+		</pre></code>
+		<pre><code class="python" data-trim data-noescape>
+			>>> def somme(a=0, b):
+			...     return a + b
+			SyntaxError: non-default argument follows default argument
+		</pre></code>
+		<pre><code class="python" data-trim data-noescape>
+			def somme(a=0, b=0):
+		</pre></code>
+		<pre><code class="python" data-trim data-noescape>
+			>>> somme()
+			0
+		</pre></code>
+	</section>
+
+	<section>
+		<h4>Documentation</h4>
+		<pre><code class="python" data-trim data-noescape>
+			>>> help(somme)
+		</pre></code>
+		<pre><code class="python" data-trim data-noescape>
+Help on function somme in module __main__:
+
+somme(a, b)
+    Retourne la somme de a et b
+		</code></pre>
+	</section>
+</section>
+<!-- ####################################################################### -->
+<!-- FUNCTION -->
+<!-- ####################################################################### -->
+<section>
+	<section><h2>TD</h2></section>
+	<section><h3>QCM</h3></section>
+	<section>
+		<h4>Consignes</h4>
+		<ul>
+			<li>Une <b>série</b> de questions</li>
+			<li>Une question a <b>plusieurs</b> réponses numérotées</li>
+			<li>Seule une réponse <b>correcte</b></li>
+			<li>Bonne réponse : <b>1 point</b></li>
+			<li>Mauvaise réponse : <b>0 point</b></li>
+			<li>Affiche le <b>score</b> à la fin</li>
+		</ul>
+	</section>
+	<section>
+		<h4>Conseils</h4>
+		<ul>
+			<li>Découpez votre code en <b>plusieurs fonctions</b></li>
+			<li>Stockez vos questions dans une <b>liste</b></li>
+		</ul>
+	</section>
+	<section>
+		<h4>Exemple</h4>
+		<pre><code class="python" data-trim data-noescape>
+question = [
+    "Couleur du cheval blanc d'Henry 4?",
+    [('Blanc', True),
+     ('Brun', False),
+     ('Rouge', False),
+     ('Noir', False)]
+]
+
+def afficher_question(question):
+    print(question[0])
+    for numero, reponse in enumerate(question[1]):
+        print(f'{numero} - {reponse[0]}')
+		</pre></code>
+	</section>
+</section>
+</div></div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+		Reveal.initialize({
+			history: true,
+			dependencies: [{
+					src: 'plugin/markdown/marked.js',
+					condition: function() {
+						return !!document.querySelector('[data-markdown]');
+					}
+				},
+				{
+					src: 'plugin/markdown/markdown.js',
+					condition: function() {
+						return !!document.querySelector('[data-markdown]');
+					}
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'socket.io/socket.io.js',
+					async: true
+				},
+				{
+					src: 'plugin/notes-server/client.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function() {
+						hljs.initHighlightingOnLoad();
+					}
+				}
+			]
+		});
+		Reveal.configure({
+			slideNumber: 'c',
+			pdfMaxPagesPerSlide: 1,
+		});
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</body>
+</html>
