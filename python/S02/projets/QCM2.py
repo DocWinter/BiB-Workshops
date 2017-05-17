@@ -17,8 +17,8 @@ def afficher_question(question):
 
 def valider_reponse(reponses):
     """ Demande à l'utilisateur d'entrer une réponse.
-        True : La réponse est correcte
-        False : La réponse n'est pas correcte
+        1 : La réponse est correcte
+        0 : La réponse n'est pas correcte
         -1 : Fin du programme
     """
     while True:
@@ -28,7 +28,7 @@ def valider_reponse(reponses):
         try:
             choix = int(choix)
             if 0 < choix <= len(reponses):
-                return reponses[choix-1][1]
+                return int(reponses[choix-1][1])
             else:
                 print("Cette réponse n'existe pas.")
         except ValueError:
