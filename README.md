@@ -25,6 +25,10 @@ Version intéractive : [S02](https://github.com/DocWinter/BiB-Workshops/tree/mas
 1. E01 - [Les bases](https://github.com/DocWinter/BiB-Workshops/blob/master/python/S02/E01.pdf)
 2. E02 - [Structure de données et Fonctions](https://github.com/DocWinter/BiB-Workshops/blob/master/python/S02/E02.pdf)
 
+TD :
+1. QCM - [Version 1](https://github.com/DocWinter/BiB-Workshops/blob/master/python/S02/projets/QCM1.py) et [Version 2](https://github.com/DocWinter/BiB-Workshops/blob/master/python/S02/projets/QCM2.py)
+
+
 ## Licence
 
 MIT License
