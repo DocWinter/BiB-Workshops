@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Python Workshop
+## S02.E03 — Erreurs et Fichiers
+### BiB - Winter
+
+---
+
+# Gérer les exceptions
+
+---
+
+## Les familles d'exceptions
+
+``` bash
+BaseException
+ +-- SystemExit
+ +-- KeyboardInterrupt
+ +-- GeneratorExit
+ +-- Exception
+      +-- StopIteration
+      +-- StopAsyncIteration
+      +-- ArithmeticError
+      +-- AssertionError
+      +-- AttributeError
+      +-- BufferError
+      +-- EOFError
+      +-- ImportError
+      +-- LookupError
+      +-- MemoryError
+      +-- NameError
+      +-- OSError
+      +-- ReferenceError
+      +-- RuntimeError
+      +-- SyntaxError
+      +-- SystemError
+      +-- TypeError
+      +-- ValueError
+      +-- Warning
+```
+
+---
+
+## Try ... Raise ... Except
+
+``` python
+try:
+    raise Exception
+except:
+    ...
+```
+
+### Exemple 1
+
+``` python
+while True:
+    try:
+        reponse = int(input("Entrez un nombre : "))
+        raise
+    except:
+        print("Ce n'est pas une valeur correcte")
+```
+
+---
+
+### Exemple 2
+``` python
+while True:
+    try:
+        reponse = int(input("Entrez un nombre : "))
+        break
+    except ValueError:
+        print("Ce n'est pas une valeur correcte")
+```
+
+### Exemple 3
+``` python
+while True:
+    try:
+        reponse = int(input("Entrez un nombre : "))
+        print(100 / reponse)
+        break
+    except ValueError:
+        print("Ce n'est pas une valeur correcte")
+    except ZeroDivisionError:
+        print("La division par n'est pas définie")
+```
+
+---
+
+### Exemple 4
+``` python
+try:
+    raise FileNotFoundError
+except ZeroDivisionError:
+    ...
+except Exception as e:
+    print(f"Une erreur est survenue: {format(e)}")
+```
+
+---
+
+## Else
+
+``` python
+try:
+    raise Exception
+except:
+    ...
+else:
+    ...
+```
+
+### Exemple 5
+
+``` python
+try:
+    import machin
+except ImportError:
+    print("Impossible d'importer le module")
+else:
+    print("Le module a bien été importé")
+```
+
+---
+
+## Finally
+
+``` python
+try:
+    raise Exception
+except ImportError:
+    ...
+else:
+    ...
+finally:
+    ...
+```
+
+### Exemple 6
+
+``` python
+def division(x, y):
+    try:
+        resultat = x / y
+    except ZeroDivisionError:
+        print("Division par zero!")
+    else:
+        print(f"Le résultat est : {resultat}")
+    finally:
+        print("Au Revoir")
+```
+
+---
+
+## Ordre d'exécution
+
+1. On test le bloc
+2. Si il y a une exception on la soulève (`except`), sinon on execute le bloc `else`
+3. On finit l'exception en executant le `finally`
+
+---
+
+# Les fichiers
+
+---
+
+## Ecriture
+
+### Mode
+
+``` python
+>>> f = open('fichier', 'w')
+```
+
+- *fichier* est le chemin vers le fichier
+- *w* est le mode d'écriture
+
+### Ecrire du contenu
+
+``` python
+>>> f.write("Bonjour!\n")
+9
+```
+
+- Seul les `string` et les `bytes` peuvent être écris dans un fichier dépendant du mode.
+- **9** est le nombre de caractères ajoutés.
+
+L'écriture **remplace** le contenu du fichier.
+
+---
+
+## Lecture
+
+### Mode
+
+``` python
+>>> f = open('fichier', 'r')
+```
+
+### Lire la totalité du fichier
+
+``` python
+>>> f.read()
+'Bonjour!\n'
+>>> f.read()
+''
+```
+
+`list(f)` et `f.readlines()` permettent aussi de récupérer le contenu en un tableau de lignes.
+
+---
+
+### Lire ligne par ligne
+
+``` python
+>>> f.readline()
+'Bonjour!\n'
+>>> f.readline()
+''
+```
+
+``` python
+>>> for ligne in f:
+...     print(ligne)
+```
+---
+
+## Fermeture
+
+```
+>>> f.close()
+```
+
+---
+
+## Modes
+
+- `r` : Lecture
+- `w` : Ecriture
+- `a` : Ajout
+
+- `b` : Ouvre en format binaire
+- `+` : Ouvre en mode lecture et écriture/ajout
+
+---
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
