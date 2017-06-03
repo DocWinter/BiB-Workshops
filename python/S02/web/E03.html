@@ -1,0 +1,415 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>E03</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/blood.css">
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<style>
+		#left {
+			left: -8.33%;
+			text-align: left;
+			float: left;
+			width: 50%;
+			z-index: -10;
+		}
+
+		#right {
+			left: 31.25%;
+			top: 75px;
+			float: right;
+			text-align: right;
+			z-index: -10;
+			width: 50%;
+		}
+	</style>
+
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<section>
+	<section>
+		<h1>Python</h1>
+	</section>
+	<section>
+		<h2>S02 - E03</h2>
+		<p>BIB</p>
+		<small><b>Winter</b> - Licence MIT</small>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h2>Les exceptions</h2>
+	</section>
+	<section>
+		<h3>Hierarchie des exceptions</h3>
+		<pre><code class="bash" data-trim data-escape>
+			BaseException
+			 +-- SystemExit
+			 +-- KeyboardInterrupt
+			 +-- GeneratorExit
+			 +-- Exception
+			      +-- StopIteration
+			      +-- StopAsyncIteration
+			      +-- ArithmeticError
+			      |    +-- FloatingPointError
+			      |    +-- OverflowError
+			      |    +-- ZeroDivisionError
+			      +-- AssertionError
+			      +-- AttributeError
+			      +-- BufferError
+			      +-- EOFError
+			      +-- ImportError
+			           +-- ModuleNotFoundError
+			      +-- LookupError
+			      |    +-- IndexError
+			      |    +-- KeyError
+			      +-- MemoryError
+			      +-- NameError
+			      |    +-- UnboundLocalError
+			      +-- OSError
+			      |    +-- BlockingIOError
+			      |    +-- ChildProcessError
+			      |    +-- ConnectionError
+			      |    |    +-- BrokenPipeError
+			      |    |    +-- ConnectionAbortedError
+			      |    |    +-- ConnectionRefusedError
+			      |    |    +-- ConnectionResetError
+			      |    +-- FileExistsError
+			      |    +-- FileNotFoundError
+			      |    +-- InterruptedError
+			      |    +-- IsADirectoryError
+			      |    +-- NotADirectoryError
+			      |    +-- PermissionError
+			      |    +-- ProcessLookupError
+			      |    +-- TimeoutError
+			      +-- ReferenceError
+			      +-- RuntimeError
+			      |    +-- NotImplementedError
+			      |    +-- RecursionError
+			      +-- SyntaxError
+			      |    +-- IndentationError
+			      |         +-- TabError
+			      +-- SystemError
+			      +-- TypeError
+			      +-- ValueError
+			      |    +-- UnicodeError
+			      |         +-- UnicodeDecodeError
+			      |         +-- UnicodeEncodeError
+			      |         +-- UnicodeTranslateError
+			      +-- Warning
+			           +-- DeprecationWarning
+			           +-- PendingDeprecationWarning
+			           +-- RuntimeWarning
+			           +-- SyntaxWarning
+			           +-- UserWarning
+			           +-- FutureWarning
+			           +-- ImportWarning
+			           +-- UnicodeWarning
+			           +-- BytesWarning
+			           +-- ResourceWarning
+		</code></pre>
+	</section>
+	<section>
+		<h3>Try</h3>
+		<pre><code class="python" data-trim data-noescape>
+			try:
+			    raise Exception
+			except:
+			    ...
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			while True:
+			    try:
+			        reponse = int(input("Entrez un nombre : "))
+			    except:
+			        print("Ce n'est pas une valeur correcte")
+		</code></pre>
+	</section>
+	<section>
+		<pre><code class="python" data-trim data-noescape>
+			while True:
+			    try:
+			        reponse = int(input("Entrez un nombre : "))
+			        break
+			    except ValueError:
+			        print("Ce n'est pas une valeur correcte")
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			while True:
+			    try:
+			        reponse = int(input("Entrez un nombre : "))
+			        print(100 / reponse)
+			        break
+			    except ValueError:
+			        print("Ce n'est pas une valeur correcte")
+			    except ZeroDivisionError:
+			        print("La division par n'est pas définie")
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			while True:
+			    try:
+			        reponse = int(input("Entrez un nombre : "))
+			        break
+			    except ValueError:
+			        print("Ce n'est pas une valeur correcte")
+		</code></pre>
+	</section>
+	<section>
+		<h3>Else</h3>
+		<pre><code class="python" data-trim data-noescape>
+			try:
+			    raise Exception
+			except:
+			    ...
+			else:
+			    ...
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			try:
+			    import machin
+			except ImportError:
+			    print("Impossible d'importer le module")
+			else:
+			    print("Le module a bien été importé")
+		</code></pre>
+	</section>
+	<section>
+		<h3>Finally</h3>
+		<pre><code class="python" data-trim data-noescape>
+			try:
+			    raise Exception
+			except ImportError:
+			    ...
+			else:
+			    ...
+			finally:
+			    ...
+		</code></pre>
+	</section>
+	<section>
+		<pre><code class="python" data-trim data-noescape>
+			def division(x, y):
+			    try:
+			        resultat = x / y
+			    except ZeroDivisionError:
+			        print("Division par zero!")
+			    else:
+			        print(f"Le résultat est : {resultat}")
+			    finally:
+			        print("Au Revoir")
+		</code></pre>
+		<pre><code class="python" data-trim data-noescape>
+			>>> divsion(1, 0)
+			Division par zero!
+			Au revoir
+			>>> division(1, 1)
+			Le résultat est : 1
+			Au revoir
+		</code></pre>
+	</section>
+	<section>
+		<h3>Ordre</h3>
+		<ol>
+			<li><code>try</code> : On essaye le bloc</li>
+			<li><code>except</code> : Si il y a des exceptions soulevées, on les récupères.</li>
+			<li><code>else</code> : Sinon on peut exécuter du code dépendant au succès de<code>try</code></li>
+			<li><code>finally</code> : On nettoie tout ce qui a besoin de l'être</li>
+		</ol>
+	</section>
+</section>
+<section>
+	<section><h2>Fichiers</h2></section>
+	<section>
+		<h3>Modus Operandi</h3>
+		<ol>
+			<li>Ouverture du fichier</li>
+			<li>Utilisation du fichier</li>
+			<li>Fermeture du fichier</li>
+		</ol>
+	</section>
+	<section>
+		<h3>Ouverture</h3>
+		<pre><code class="python" data-trim data-noescape>
+			>>> f = open('fichier', 'w')
+		</code></pre>
+		<ul>
+			<li><code>'fichier'</code> est le chemin d'accès au fichier</li>
+			<li><code>'w'</code> est le mode d'ouverture, ici écriture</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Les modes</h3>
+		<div id="left">
+			<h4>Primaires</h4>
+			<ul>
+				<li><code>r</code> : Lecture</li>
+				<li><code>w</code> : Ecriture</li>
+				<li><code>a</code> : Ajout</li>
+			</ul>
+		</div>
+		<div id="right">
+			<h4>Secondaires</h4>
+			<ul>
+				<li><code>b</code> : Ouverture en format binaire</li>
+				<li><code>+</code> : Permet la lecture et l'écriture/ajout en même temps</li>
+			</ul>
+		</div>
+	</section>
+	<section>
+		<p>
+			<code>r</code>, <code>a</code>, <code>r+</code> et <code>a+</code> nécessitent que le fichier existe sinon <code>FileNotFoundError</code> est levée.	
+		</p>
+		<p>
+			Si un fichier ouvert en <code>w</code> n'existe pas, il est automatiquement créé.	
+		</p>
+	</section>
+	<section>
+		<h3>Lecture</h3>
+		<div id="left">
+			<h4>Lecture totale</h4>
+			<pre><code class="python" data-trim data-noescape>
+				>>> f.read()
+				'Bonjour!\nAu Revoir!\n'
+				>>> f.read()
+				'' # curseur a rencontré eof
+			</code></pre>
+			<pre><code class="python" data-trim data-noescape>
+				>>> list(f)
+				['Bonjour\n', 'Au Revoir\n']
+			</code></pre>
+			<pre><code class="python" data-trim data-noescape>
+				>>> f.readlines()
+				['Bonjour\n', 'Au Revoir\n']
+			</code></pre>
+		</div>
+		<div id="right">
+			<h4>Lecture graduelle</h4>
+			<pre><code class="python" data-trim data-noescape>
+				>>> f.readline()
+				'Bonjour!\n' # ligne 1
+				>>> f.readline()
+				'Au Revoir!\n' # ligne 2
+				>>> f.readline()
+				'' # curseur a rencontré eof
+			</code></pre>
+		</div>
+	</section>
+	<section>
+		<h3>Curseur</h3>
+		<div id="left">
+			<h4>Connaître la position actuelle</h4>
+			<pre><code class="python" data-trim data-noescape>
+				>>> f.tell()
+				0 # Caractère 0 du fichier
+			</code></pre>
+		</div>
+		<div id="right">
+			<h4>Changer de position</h4>
+			<pre><code class="python" data-trim data-noescape>
+				>>> f.seek(a, b)
+				# a est le nombre de caractères
+				# b est l'endroit d'où on part :
+				# b = 0 : début du fichier
+				# b = 1 : position actuelle
+				# b = 2 : fin du fichier
+			</code></pre>
+		</div>
+		
+	</section>
+	<section>
+		<h3>Ecriture</h3>
+		<pre><code class="python" data-trim data-noescape>
+			>>> f.write('Hello, World!')
+			13
+		</code></pre>
+
+		Attention, le mode écriture écrase complétement le contenu du fichier. Si vous voulez
+		ajouter, il faut utiliser le mode <code>a</code>.
+	</section>
+	<section>
+		<h3>Fermeture</h3>
+		<pre><code class="python" data-trim data-noescape>
+			>>> f.close()
+		</code></pre>
+	</section>
+	<section>
+		<h3>Sucre syntaxique</h3>
+		<pre><code class="python" data-trim data-noescape>
+			>>> with open('fichier', 'r') as f:
+			...     # code utilisant le fichier
+			>>> f.closed
+			True
+		</code></pre>
+		Le fichier est "vivant" seulement à l'intérieur du bloc <code>with</code>. Ce qui évite d'oublier le <code>f.close()</code>.
+	</section>
+</section>
+
+</div>
+</div>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+		Reveal.initialize({
+			history: true,
+			dependencies: [{
+					src: 'plugin/markdown/marked.js',
+					condition: function() {
+						return !!document.querySelector('[data-markdown]');
+					}
+				},
+				{
+					src: 'plugin/markdown/markdown.js',
+					condition: function() {
+						return !!document.querySelector('[data-markdown]');
+					}
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'socket.io/socket.io.js',
+					async: true
+				},
+				{
+					src: 'plugin/notes-server/client.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function() {
+						hljs.initHighlightingOnLoad();
+					}
+				}
+			]
+		});
+		Reveal.configure({
+			slideNumber: 'c',
+			pdfMaxPagesPerSlide: 1,
+		});
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</body>
+</html>

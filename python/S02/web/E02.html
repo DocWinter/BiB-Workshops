@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>reveal.js</title>
+	<title>E02</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/blood.css">
@@ -50,10 +50,7 @@
 		<h1>Python</h1></section>
 	<section>
 		<h2>S02 – E02</h2>
-		<b><i>A l'abordage, moussaillons!</i></b>
-		<br>
-		<br> BIB 18.04.17
-		<br>
+		<p>BIB</p>
 		<small><b>Winter</b> - Licence MIT</small>
 	</section>
 </section>
@@ -139,6 +136,8 @@
 			...         break
 			...     print(a)
 			...     a += 1
+			... else:
+			...      print('A est égal à ' + str(a))
 		</code></pre>
 	</section>
 </section>
@@ -147,12 +146,6 @@
 <!-- ####################################################################### -->
 <section>
 	<section><h2>Tableaux</h2></section>
-	<!--
-		Pour chaque structure :
-			-> Propriétés
-			-> Cas d'utilisation
-			-> Exemple (1D, 2D, mélange)
-	-->
 	<section><h3>Liste</h3></section>
 	<section>
 		<h4>Index</h4>
@@ -172,7 +165,7 @@
 
 		<pre><code class="python" data-trim data-noescape>
 			>>> liste[-1] = False
-			[43, 344.45, 'Hello', False]
+			# [43, 344.45, 'Hello', False]
 		</code></pre>
 	</section>
 
@@ -187,15 +180,15 @@
 		</pre></code>
 		<pre><code class="python" data-trim data-noescape>
 			>>> liste + [4, 5]
-			[0, 1, 2, 3, 4, 5]
+			# [0, 1, 2, 3, 4, 5]
 		</pre></code>
 		<pre><code class="python" data-trim data-noescape>
 			>>> liste * 3
-			[0, 1, 2, 0, 1, 2, 0, 1, 2]
+			# [0, 1, 2, 0, 1, 2, 0, 1, 2]
 		</pre></code>
 		<pre><code class="python" data-trim data-noescape>
 			>>> del liste[0]
-			[1, 2]
+			# [1, 2]
 		</pre></code>
 	</section>
 
@@ -216,8 +209,8 @@
 				P: Pas
 			</p>
 		</div>
-
 	</section>
+
 	<section>
 		<pre><code class="python" data-trim data-noescape>
 			>>> liste[3:]
@@ -279,11 +272,11 @@
 		<h4>Liste en compréhension</h4>
 		<pre><code class="python" data-trim data-noescape>
 			>>> liste = [x**2 for x in range(0, 5)]
-			[0, 1, 4, 9, 16]
+			# [0, 1, 4, 9, 16]
 		</code></pre>
 		<pre><code class="python" data-trim data-noescape>
 			>>> liste = [x for x in range(0, 5) if x % 2 == 0]
-			[0, 2, 4]
+			# [0, 2, 4]
 		</code></pre>
 	</section>
 
@@ -318,11 +311,11 @@
 	<section>
 		<pre><code class="python" data-trim data-noescape>
 			>>> s = {0, 1, 2, 2, 3, 4, 5, 6, 6, 7}
-			{0, 1, 2, 3, 4, 5, 6, 7}
+			# {0, 1, 2, 3, 4, 5, 6, 7}
 		</code></pre>
 		<pre><code class="python" data-trim data-noescape>
 			>>> s2 = {4, 3, 2, 1, 0}
-			{0, 1, 2, 3, 4}
+			# {0, 1, 2, 3, 4}
 		</code></pre>
 		<pre><code class="python" data-trim data-noescape>
 			>>> s[0]
@@ -334,11 +327,11 @@
 		</code></pre>
 		<pre><code class="python" data-trim data-noescape>
 			>>> s.add(8)
-			{0, 1, 2, 3, 4, 5, 6, 7, 8}
+			# {0, 1, 2, 3, 4, 5, 6, 7, 8}
 		</code></pre>
 		<pre><code class="python" data-trim data-noescape>
 			>>> s.remove(0)
-			{1, 2, 3, 4, 5, 6, 7, 8}
+			# {1, 2, 3, 4, 5, 6, 7, 8}
 		</code></pre>
 	</section>
 
@@ -346,7 +339,7 @@
 	<section>
 		<pre><code class="python" data-trim data-noescape>
 			>>> d = {'name': 'John', 'age': 42, 'job': 'Hacker'}
-			{'age': 42, 'job': 'Hacker', 'name': 'John'}
+			# {'age': 42, 'job': 'Hacker', 'name': 'John'}
 		</code></pre>
 		<pre><code class="python" data-trim data-noescape>
 			>>> d['name']
@@ -354,11 +347,11 @@
 		</code></pre>
 		<pre><code class="python" data-trim data-noescape>
 			>>> d['age'] = 66
-			{'age': 66, 'job': 'Hacker', 'name': 'John'}
+			# {'age': 66, 'job': 'Hacker', 'name': 'John'}
 		</code></pre>
 		<pre><code class="python" data-trim data-noescape>
 			>>> d['city'] = 'New York City'
-			{'age': 42, 'city': 'New York City', 'job': 'Hacker', 'name': 'John'}
+			# {'age': 42, 'city': 'New York City', 'job': 'Hacker', 'name': 'John'}
 		</code></pre>
 	</section>
 	<section>
@@ -389,15 +382,7 @@
 				<td>Non</td>
 			</tr>
 			<tr>
-				<td>Modifiable</td>
-				<td><b>Oui</b></td>
-				<td>Non</td>
-				<td>Non</td>
-				<td>Non</td>
-				<td><b>Oui</b></td>
-			</tr>
-			<tr>
-				<td>Ajout<br>Supression</td>
+				<td>Mutable</td>
 				<td><b>Oui</b></td>
 				<td>Non</td>
 				<td>Non</td>
