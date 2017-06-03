@@ -10,7 +10,7 @@ git clone https://github.com/DocWinter/BiB-Workshops
 
 ### Python
 
-Slides à ouvrir dans votre navigateur favoris :
+Slides à ouvrir dans votre navigateur préféré :
 
 * [E01 - Introduction](https://github.com/DocWinter/BiB-Workshops/blob/master/python/S02/web/E01.html)
 * [E02 - Structures de données](https://github.com/DocWinter/BiB-Workshops/blob/master/python/S02/web/E01.html)
